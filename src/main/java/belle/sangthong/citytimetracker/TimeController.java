@@ -14,7 +14,7 @@ public class TimeController {
     @GetMapping("/citytimetracker")
     String time(Model model) {
 
-        model.addAttribute("thetime", tService.getCurrentTime());
+        model.addAttribute("thailand", tService.getCurrentTimeInThailand());
         return "timepage";
     }
 }
