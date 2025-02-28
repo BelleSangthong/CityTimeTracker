@@ -5,7 +5,13 @@
   <title>Title</title>
 </head>
 <body>
-<h1>The time is</h1>
-<p th:text="${thailand}">text som skall bytas ut</p>
+<p>Please enter the city</p>
+<form method="POST" action="/citytimetracker">
+  <input name="city" type="text" size="8" value=""/>
+    <input name="submit" type="submit" value="Send"/>
+
+</form>
+<p>Svar:</p>
+<p th:text="${time}">Byt ut text</p>
 </body>
 </html>

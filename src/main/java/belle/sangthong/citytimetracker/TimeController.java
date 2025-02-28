@@ -4,6 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Set;
 
 @Controller
 public class TimeController {
@@ -13,8 +17,21 @@ public class TimeController {
 
     @GetMapping("/citytimetracker")
     String time(Model model) {
-
-        model.addAttribute("thailand", tService.getCurrentTimeInThailand());
         return "timepage";
+    }
+
+    @PostMapping("/citytimetracker")
+    String timePost(Model model,
+                    @RequestParam("city") String city) {
+        String time = tService.getCurrentTimeInCity(city);
+        model.addAttribute("time", time);
+        return "timepage";
+    }
+
+    @GetMapping("/citylisten")
+    String cityList(Model model) {
+        Set<String> cities = tService.getCities();
+        model.addAttribute("cities", cities);
+        return "citylist";
     }
 }
