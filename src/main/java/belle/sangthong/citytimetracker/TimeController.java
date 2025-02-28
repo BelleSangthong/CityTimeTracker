@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Set;
 
 @Controller
@@ -28,9 +29,9 @@ public class TimeController {
         return "timepage";
     }
 
-    @GetMapping("/citylisten")
+    @GetMapping("/listofcities")
     String cityList(Model model) {
-        Set<String> cities = tService.getCities();
+        List<String> cities = tService.getCities();
         model.addAttribute("cities", cities);
         return "citylist";
     }

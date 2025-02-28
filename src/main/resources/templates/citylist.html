@@ -6,8 +6,8 @@
 </head>
 <body>
 <h1>The time is</h1>
-<ul th:each="c: ${citylist}">
-    <li><span th:text="${c.name}"></span>, <span th:text="${c.population}"></span></li>
+<ul th:each="c: ${cities}">
+    <li><span th:text="${c}"></span></li>
 </ul>
 </body>
 </html>
